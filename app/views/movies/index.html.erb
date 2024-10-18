@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movies List</title>
+  </head>
+  <body>
+    <h1>Movies List</h1>
+    <ul>
+      <% @movies.each do |movie| %>
+        <li>
+          <strong><%= movie.name %></strong>
+          <br>
+          <img src="<%= movie.image_url %>" alt="<%= movie.name %>">
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
