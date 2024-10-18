@@ -21,6 +21,23 @@ class Admin::MoviesController < ApplicationController
     render :new
   end
 
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      redirect_to admin_movies_path, notice: '映画が更新されました'
+    else
+      flash[:alert] = '映画の更新に失敗しました。同じタイトルの映画は登録できません'
+      render :edit
+    end
+  rescue StandardError => e
+    flash[:alert] = "エラーが発生しました： #{e.message}"
+    render :edit
+  end
+
   private
 
   def movie_params
