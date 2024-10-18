@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>映画新規登録</title>
+</head>
+<body>
+  <h1>映画新規登録</h1>
+
+  <%= form_with model: @movie, url: admin_movies_path, local: true do |f| %>
+    <div>
+      <%= f.label :name, 'タイトル' %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :year, '公開年' %>
+      <%= f.text_field :year %>
+    </div>
+    <div>
+      <%= f.label :description, '概要' %>
+      <%= f.text_area :description %>
+    </div>
+    <div>
+      <%= f.label :image_url, '画像URL' %>
+      <%= f.text_field :image_url %>
+    </div>
+    <div>
+      <%= f.label :is_showing, '上映中' %>
+      <%= f.check_box :is_showing %>
+    </div>
+    <div>
+      <%= f.submit '登録する' %>
+    </div>
+  <% end %>
+</body>
+</html>
