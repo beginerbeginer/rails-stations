@@ -5,6 +5,9 @@ RUN npm install -g yarn
 RUN mkdir /app
 WORKDIR /app
 
+# NODE_OPTIONS を設定
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # このDockerfileでgemのインストールやyarnによるパッケージのインストールをしていないのは、
 # ログインなどの処理を挟む必要があるため。
 COPY Gemfile /app/Gemfile
