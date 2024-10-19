@@ -1,0 +1,12 @@
+<h1>スケジュール一覧 (管理画面)</h1>
+
+<% @schedules.each do |schedule| %>
+  <h2>作品ID: <%= schedule.movie.id %> 作品名: <%= schedule.movie.name %></h2>
+
+  <ul>
+    <li><%= format_schedule_time(schedule) %></li>
+    <li><img src="<%= schedule.movie.image_url %>" alt="<%= schedule.movie.name %>"></li>
+    <li><a href="<%= edit_admin_schedule_path(schedule) %>">スケジュール編集</a></li>
+    <li><a href="<%= admin_schedule_path(schedule) %>" data-method="delete" data-confirm="本当に削除しますか？">スケジュール削除</a></li>
+  </ul>
+<% end %>

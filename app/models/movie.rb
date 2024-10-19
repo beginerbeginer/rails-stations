@@ -12,6 +12,17 @@ class Movie < ApplicationRecord
     is_showing ? '上映中' : '上映予定'
   end
 
+  # スケジュール情報をフォーマットして返すメソッド
+  def formatted_schedules
+    if schedules.any?
+      schedules.map do |schedule|
+        "開始時刻: #{schedule.start_time.strftime('%Y-%m-%d %H:%M:%S')}, 終了時刻: #{schedule.end_time.strftime('%Y-%m-%d %H:%M:%S')}"
+      end.join('<br>').html_safe
+    else
+      'スケジュールなし'
+    end
+  end
+
   def self.search(keyword:, is_showing:)
     movies = all
 

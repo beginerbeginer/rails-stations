@@ -27,10 +27,11 @@
           <td><%= movie.name %></td>
           <td><%= movie.year %></td>
           <td><%= movie.description %></td>
-          <td><a href="<%= movie.image_url %>">画像</a></td>
+          <td><img src="<%= movie.image_url %>" alt="映画ポスター"></td>
           <td><%= movie.showing_status %></td>
           <td><%= movie.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           <td><%= movie.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= movie.formatted_schedules %></td>
         </tr>
       <% end %>
     </tbody>

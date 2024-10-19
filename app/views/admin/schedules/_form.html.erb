@@ -1,0 +1,15 @@
+<%= form_with model: [@movie, @schedule], url: form_url, method: form_method do |f| %>
+  <div>
+    <%= f.label :start_time, "開始時刻" %>
+    <%= f.time_select :start_time %>
+  </div>
+
+  <div>
+    <%= f.label :end_time, "終了時刻" %>
+    <%= f.time_select :end_time %>
+  </div>
+
+  <div>
+    <%= f.submit form_submit_text %>
+  </div>
+<% end %>

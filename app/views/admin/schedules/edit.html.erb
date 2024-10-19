@@ -1,0 +1,7 @@
+<h1>スケジュール編集 (スケジュールID: <%= @schedule.id %>)</h1>
+
+<%= render partial: 'form', locals: {
+  form_url: admin_schedule_path(@schedule),
+  form_method: :put,
+  form_submit_text: 'スケジュールを更新'
+} %>
