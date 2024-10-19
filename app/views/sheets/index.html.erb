@@ -1,2 +1,30 @@
-<h1>Sheets#index</h1>
-<p>Find me in app/views/sheets/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>シート一覧</title>
+</head>
+<body>
+  <h1>座席表</h1>
+
+  <table border="1" style="width: 100%; text-align: center;">
+    <tbody>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>スクリーン</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <% rows = @sheets.group_by(&:row) %>
+      <% rows.each do |row, sheets| %>
+        <tr>
+          <% sheets.each do |sheet| %>
+            <td><%= "#{sheet.row}-#{sheet.column}" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
+</html>
