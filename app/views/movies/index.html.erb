@@ -5,6 +5,24 @@
   </head>
   <body>
     <h1>Movies List</h1>
+
+    <%= form_with url: movies_path, method: :get, local: true do %>
+      <div>
+        <%= label_tag :keyword, 'キーワード検索' %>
+        <%= text_field_tag :keyword, params[:keyword] %>
+      </div>
+      <div>
+        <%= label_tag :is_showing, '表示設定' %><br>
+        <%= radio_button_tag :is_showing, '', params[:is_showing].blank?, id: 'is_showing_all' %>
+        <%= label_tag 'is_showing_all', 'すべて' %><br>
+        <%= radio_button_tag :is_showing, 'true', params[:is_showing] == 'true', id: 'is_showing_now' %>
+        <%= label_tag 'is_showing_now', '上映中' %><br>
+        <%= radio_button_tag :is_showing, 'false', params[:is_showing] == 'false', id: 'is_showing_upcoming' %>
+        <%= label_tag 'is_showing_upcoming', '上映予定' %>
+      </div>
+      <%= submit_tag '検索' %>
+    <% end %>
+
     <ul>
       <% @movies.each do |movie| %>
         <li>
