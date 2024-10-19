@@ -38,6 +38,12 @@ class Admin::MoviesController < ApplicationController
     render :edit
   end
 
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to admin_movies_path, notice: '映画が削除されました'
+  end
+
   private
 
   def movie_params

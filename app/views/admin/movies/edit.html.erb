@@ -8,5 +8,9 @@
   <h1>映画編集</h1>
 
   <%= render 'form', action_name: '更新する' %>
+
+  <div>
+    <%= button_to '削除する', admin_movie_path(@movie), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </div>
 </body>
 </html>
